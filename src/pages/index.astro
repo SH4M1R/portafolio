@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
+
+const experiencia = [
+  {
+    cargo: 'Desarrollador Web',
+    lugar: 'Neon House Led',
+    periodo: 'Marzo 2026 – Junio 2026',
+    puntos: [
+      'Desarrollé y entregué funcionalidades web según los requerimientos del negocio.',
+      'Implementé paneles administrativos para la gestión de información de la empresa.',
+      'Gestioné despliegues y actualizaciones de versiones de servidores en producción.',
+    ],
+  },
+];
+
+const formacion = [
+  {
+    cargo: 'Ingeniería de Software',
+    lugar: 'Universidad Tecnológica del Perú (UTP), Lima Norte',
+    periodo: 'Marzo (2022) – Diciembre (2026)',
+  },
+  {
+    cargo: 'Educación Secundaria',
+    lugar: 'I.E. Ciencias Siglo XXI',
+    periodo: '2017 – 2021',
+  },
+];
+
+const tecnologias = [
+  { grupo: 'Backend', items: ['Java', 'Spring Boot', 'APIs REST', 'PHP (Laravel)', 'Python'] },
+  { grupo: 'Frontend', items: ['React (Vite / Next)', 'Astro', 'React Native', 'HTML', 'CSS', 'JavaScript', 'TailwindCSS'] },
+  { grupo: 'Bases de datos', items: ['MySQL', 'SQL Server'] },
+  { grupo: 'Despliegue', items: ['Docker', 'Render', 'Vercel', 'Hostinger'] },
+  { grupo: 'Herramientas', items: ['Git', 'GitHub', 'Postman', 'Figma', 'n8n', 'IntelliJ IDEA', 'VS Code', 'Android Studio'] },
+];
+
+const competencias = [
+  'Resolución de problemas',
+  'Adaptabilidad',
+  'Proactividad',
+  'Trabajo bajo presión',
+  'Mejora continua',
+  'Compromiso',
+];
+---
+
+<Layout>
+  <main>
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="relative scroll-mt-16 overflow-hidden">
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_55%_at_15%_0%,rgba(139,92,246,0.28),transparent),radial-gradient(45%_45%_at_95%_20%,rgba(59,130,246,0.18),transparent)]"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="relative mx-auto max-w-5xl px-5 pb-20 pt-16 sm:px-6 sm:pt-24">
+        <p class="text-blue-300">Estudiante de Ingeniería de Software · Lima, Perú</p>
+        
+        <!-- Nombre e Imagen de perfil alineados -->
+        <div class="mt-3 flex flex-col-reverse items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <h1 class="bg-gradient-to-r from-white via-violet-200 to-blue-300 bg-clip-text font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-transparent sm:text-7xl"
+          >
+            Juan Pablo Inoñan Zegarra
+          </h1>
+          <img
+            src="/FotoJP.png"
+            alt="Juan Pablo Inoñan Zegarra"
+            class="h-30 w-30 shrink-0 rounded-full object-cover border-2 border-violet-400/50 shadow-lg sm:h-36 sm:w-36"
+          />
+        </div>
+
+        <p class="mt-4 font-display text-2xl font-bold text-violet-300 sm:text-3xl">Desarrollador full stack</p>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-mute">
+          Construyo aplicaciones web y móviles con foco en backend con Java y Spring Boot, e interfaces
+          responsivas con React, Astro y TailwindCSS. He desarrollado sistemas administrativos, interfaces tipo POS
+          e integración de asistentes con IA, y despliego mis proyectos con Docker, Render y Vercel.
+        </p>
+
+        <!-- Experiencia y formación -->
+        <div class="mt-16 grid gap-12 md:grid-cols-2">
+          <div>
+            <h2 class="font-display text-2xl font-bold">Experiencia profesional</h2>
+            <ol class="mt-6 space-y-8 border-l border-line pl-6">
+              {
+                experiencia.map((e) => (
+                  <li class="relative">
+                    <span class="absolute -left-[31px] top-1.5 h-2.5 w-2.5 rounded-full bg-violet-400 ring-4 ring-ink-950" />
+                    <p class="text-sm text-blue-300">{e.periodo}</p>
+                    <h3 class="mt-1 text-lg font-bold">{e.cargo}</h3>
+                    <p class="text-violet-300">{e.lugar}</p>
+                    <ul class="mt-3 space-y-2 text-mute">
+                      {e.puntos.map((p) => (
+                        <li class="leading-relaxed">{p}</li>
+                      ))}
+                    </ul>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+
+          <div>
+            <h2 class="font-display text-2xl font-bold">Formación académica</h2>
+            <ol class="mt-6 space-y-8 border-l border-line pl-6">
+              {
+                formacion.map((f) => (
+                  <li class="relative">
+                    <span class="absolute -left-[31px] top-1.5 h-2.5 w-2.5 rounded-full bg-blue-400 ring-4 ring-ink-950" />
+                    <p class="text-sm text-blue-300">{f.periodo}</p>
+                    <h3 class="mt-1 text-lg font-bold">{f.cargo}</h3>
+                    <p class="text-mute">{f.lugar}</p>
+                  </li>
+                ))
+              }
+            </ol>
+
+            <h2 class="mt-12 font-display text-2xl font-bold">Idiomas</h2>
+            <p class="mt-3 text-mute">Español nativo e inglés intermedio.</p>
+          </div>
+        </div>
+
+        <!-- Tecnologías -->
+        <div class="mt-16">
+          <h2 class="font-display text-2xl font-bold">Tecnologías</h2>
+          <dl class="mt-6 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+            {
+              tecnologias.map((t) => (
+                <div>
+                  <dt class="font-medium text-violet-300">{t.grupo}</dt>
+                  <dd class="mt-2 flex flex-wrap gap-2">
+                    {t.items.map((i) => (
+                      <span class="rounded-full border border-line bg-ink-800 px-3 py-1 text-sm">{i}</span>
+                    ))}
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+
+          <h2 class="mt-12 font-display text-2xl font-bold">Cómo trabajo</h2>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {
+              competencias.map((c) => (
+                <li class="rounded-full border border-violet-400/40 px-3 py-1 text-sm text-violet-200">{c}</li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="scroll-mt-16 border-t border-line bg-ink-900/40">
+      <div class="mx-auto max-w-5xl px-5 py-20 sm:px-6">
+        <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl">Proyectos</h2>
+        <p class="mt-3 max-w-xl text-mute">
+          Sistemas y aplicaciones que construí de principio a fin. Abre cada sitio en línea o revisa su código en GitHub.
+        </p>
+
+        <div class="mt-14 space-y-20">
+          {projects.map((p, i) => <ProjectCard project={p} reverse={i % 2 === 1} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line py-8 text-center text-sm text-mute">
+    © 2026 Juan Pablo Inoñan Zegarra
+  </footer>
+</Layout>

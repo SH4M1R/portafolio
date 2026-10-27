@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+  reverse?: boolean;
+}
+
+const { project, reverse = false } = Astro.props;
+const { title, subtitle, period, description, image, tags, demo, repos } = project;
+---
+
+<article class="grid items-center gap-6 md:grid-cols-2 md:gap-10">
+  <div class:list={[reverse && 'md:order-2']}>
+    {
+      demo ? (
+        <a
+          href={demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Abrir el sitio de ${title}`}
+          class="group block overflow-hidden rounded-xl border border-line bg-ink-900 transition-colors hover:border-violet-400"
+        >
+          <Image
+            src={image}
+            alt={`Vista previa del proyecto ${title}`}
+            class="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+            loading="lazy"
+          />
+        </a>
+      ) : (
+        <div class="overflow-hidden rounded-xl border border-line bg-ink-900">
+          <Image
+            src={image}
+            alt={`Vista previa del proyecto ${title}`}
+            class="aspect-[16/10] w-full object-cover object-top"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
+  </div>
+
+  <div class:list={[reverse && 'md:order-1']}>
+    <p class="text-sm text-blue-300">{period}</p>
+    <h3 class="mt-1 font-display text-3xl font-bold tracking-tight">{title}</h3>
+    <p class="mt-1 font-medium text-violet-300">{subtitle}</p>
+    <p class="mt-4 max-w-prose leading-relaxed text-mute">{description}</p>
+
+    {
+      tags.length > 0 && (
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li class="rounded-full border border-line bg-ink-800 px-3 py-1 text-sm text-fog">{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+
+    <div class="mt-6 flex flex-wrap items-center gap-3">
+      {
+        demo ? (
+          <a
+            href={demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-lg bg-violet-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-violet-400"
+          >
+            Ver sitio en línea
+          </a>
+        ) : (
+          <span class="rounded-lg border border-dashed border-line px-4 py-2 text-sm text-mute">
+            Sin despliegue público
+          </span>
+        )
+      }
+      {
+        repos.map((repo) => (
+          <a
+            href={repo.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-lg border border-blue-400/60 px-4 py-2 text-sm font-medium text-blue-300 transition-colors hover:bg-blue-400/10"
+          >
+            {repo.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</article>
