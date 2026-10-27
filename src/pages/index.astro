@@ -9,9 +9,15 @@ const experiencia = [
     lugar: 'Neon House Led',
     periodo: 'Marzo 2026 – Junio 2026',
     puntos: [
-      'Desarrollé y entregué funcionalidades web según los requerimientos del negocio.',
-      'Implementé paneles administrativos para la gestión de información de la empresa.',
-      'Gestioné despliegues y actualizaciones de versiones de servidores en producción.',
+      'Desarrollé y entregué funcionalidades web según los requerimientos del negocio. Además de gestionar despliegues y actualizaciones de versiones de servidores en producción.',
+    ],
+  },
+
+  {
+    cargo: 'Freelance',
+    periodo: 'Julio 2026 – Actualmente',
+    puntos: [
+      'Desarrollo e Instalación de sistemas intranet administrativos para diversos negocios en el rubro de venta de productos y servicios.'
     ],
   },
 ];
@@ -32,19 +38,11 @@ const formacion = [
 const tecnologias = [
   { grupo: 'Backend', items: ['Java', 'Spring Boot', 'APIs REST', 'PHP (Laravel)', 'Python'] },
   { grupo: 'Frontend', items: ['React (Vite / Next)', 'Astro', 'React Native', 'HTML', 'CSS', 'JavaScript', 'TailwindCSS'] },
-  { grupo: 'Bases de datos', items: ['MySQL', 'SQL Server'] },
+  { grupo: 'Bases de datos', items: ['MySQL', 'SQL Server', 'PostgreSQL'] },
   { grupo: 'Despliegue', items: ['Docker', 'Render', 'Vercel', 'Hostinger'] },
-  { grupo: 'Herramientas', items: ['Git', 'GitHub', 'Postman', 'Figma', 'n8n', 'IntelliJ IDEA', 'VS Code', 'Android Studio'] },
+  { grupo: 'Herramientas', items: ['Git', 'GitHub', 'Postman', 'Figma', 'IntelliJ IDEA', 'VS Code', 'Android Studio'] },
 ];
 
-const competencias = [
-  'Resolución de problemas',
-  'Adaptabilidad',
-  'Proactividad',
-  'Trabajo bajo presión',
-  'Mejora continua',
-  'Compromiso',
-];
 ---
 
 <Layout>
@@ -74,7 +72,7 @@ const competencias = [
         </div>
 
         <p class="mt-4 font-display text-2xl font-bold text-violet-300 sm:text-3xl">Desarrollador full stack</p>
-        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-mute">
+        <p class="mt-6 max-w-full text-lg leading-relaxed text-mute">
           Construyo aplicaciones web y móviles con foco en backend con Java y Spring Boot, e interfaces
           responsivas con React, Astro y TailwindCSS. He desarrollado sistemas administrativos, interfaces tipo POS
           e integración de asistentes con IA, y despliego mis proyectos con Docker, Render y Vercel.
@@ -140,15 +138,6 @@ const competencias = [
               ))
             }
           </dl>
-
-          <h2 class="mt-12 font-display text-2xl font-bold">Cómo trabajo</h2>
-          <ul class="mt-4 flex flex-wrap gap-2">
-            {
-              competencias.map((c) => (
-                <li class="rounded-full border border-violet-400/40 px-3 py-1 text-sm text-violet-200">{c}</li>
-              ))
-            }
-          </ul>
         </div>
       </div>
     </section>
@@ -157,7 +146,7 @@ const competencias = [
     <section id="proyectos" class="scroll-mt-16 border-t border-line bg-ink-900/40">
       <div class="mx-auto max-w-5xl px-5 py-20 sm:px-6">
         <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl">Proyectos</h2>
-        <p class="mt-3 max-w-xl text-mute">
+        <p class="mt-3 max-w-full text-mute">
           Sistemas y aplicaciones que construí de principio a fin. Abre cada sitio en línea o revisa su código en GitHub.
         </p>
 

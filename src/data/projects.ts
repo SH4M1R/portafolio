@@ -50,7 +50,7 @@ export const projects: Project[] = [
     subtitle: 'Catálogo web responsive',
     period: 'Marzo – Abril 2026',
     description:
-      'Desarrollo completo del frontend de un catálogo farmacéutico, con filtros, cards de producto y un sistema visual dinámico. Se organizó con componentes reutilizables y una arquitectura ordenada, optimizando la experiencia de usuario.',
+      'Desarrollo completo del frontend de un catálogo farmacéutico, con filtros, cards de producto y un sistema visual dinámico. Todos los datos conectados a google Sheets para no requerir de backend',
     image: miahorro,
     tags: ['React', 'TailwindCSS'],
     demo: 'https://miahorropharma.onrender.com',
